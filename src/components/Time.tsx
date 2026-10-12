@@ -1,8 +1,10 @@
 const Time = () => {
-  const date = new Date().toLocaleString("bn-BD", {
+  const date = new Date().toLocaleDateString("bn-BD", {
     timeZone: "Asia/Dhaka",
-    dateStyle: "long",
-    timeStyle: "short",
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
   });
   return (
     <div>

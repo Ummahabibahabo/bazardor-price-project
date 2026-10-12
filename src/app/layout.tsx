@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Hind_Siliguri } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
+import NavLink from "@/components/Navbar/NavLink";
 
 const hindSiliguri = Hind_Siliguri({
   subsets: ["latin", "bengali"],
@@ -17,10 +18,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${hindSiliguri.className}  h-full antialiased`}>
       <body>
-        <div className="max-w-7xl mx-auto p-10">
+        <div className="max-w-7xl mx-auto p-8">
           <Navbar></Navbar>
         </div>
-        {children}
+        <NavLink></NavLink>
+        <div className="max-w-7xl mx-auto p-8">{children}</div>
       </body>
     </html>
   );
