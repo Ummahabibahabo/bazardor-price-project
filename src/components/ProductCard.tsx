@@ -47,7 +47,7 @@ const ProductCardPage = ({ data }: ProductCardPageProps) => {
               )}
             </span>
             <p
-              className={`text-[16px] font-bold ${data.change.dir === "up" ? "text-red-600" : data.change.dir === "down" ? "text-green-600" : "text-gray-400"}`}
+              className={`text-[16px] font-bold ${data.change.dir === "up" ? "text-red-600" : data.change.dir === "down" ? "text-green-600" : "text-gray-500"}`}
             >
               {Math.abs(data.change.pct).toLocaleString("bn-BD")} %
             </p>

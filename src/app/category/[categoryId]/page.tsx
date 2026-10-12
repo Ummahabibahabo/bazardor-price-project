@@ -1,6 +1,5 @@
 import { ProductType } from "@/components/type";
 import CategorySortPage from "../CategorySort";
-import ProductCardPage from "@/components/ProductCard";
 
 interface SingleCategoryType {
   icon: string;
@@ -39,20 +38,10 @@ const CategoryIdPage = async ({
           </div>
         </div>
       </div>
-      <CategorySortPage></CategorySortPage>
+      <CategorySortPage singleProduct={singleProduct}></CategorySortPage>
       <p className="py-6">
         মোট {singleProduct.length.toLocaleString("bn-BD")} টি পণ্য দেখানো হচ্ছে
       </p>
-      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {singleProduct.map((data) => (
-          <div
-            className="border border-gray-200 rounded-xl bg-white shadow-lg p-7"
-            key={data.id}
-          >
-            <ProductCardPage data={data}></ProductCardPage>
-          </div>
-        ))}
-      </div>
     </div>
   );
 };
