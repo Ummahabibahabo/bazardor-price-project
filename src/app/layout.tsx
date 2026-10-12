@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${hindSiliguri.className}  h-full antialiased`}>
-      <body>
+      <body className="bg-[#F0F5F0]">
         <div className="max-w-7xl mx-auto p-8">
           <Navbar></Navbar>
         </div>
