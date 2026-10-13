@@ -39,9 +39,6 @@ const CategoryIdPage = async ({
         </div>
       </div>
       <CategorySortPage singleProduct={singleProduct}></CategorySortPage>
-      <p className="py-6">
-        মোট {singleProduct.length.toLocaleString("bn-BD")} টি পণ্য দেখানো হচ্ছে
-      </p>
     </div>
   );
 };

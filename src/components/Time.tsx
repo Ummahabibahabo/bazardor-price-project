@@ -8,7 +8,7 @@ const Time = () => {
   });
   return (
     <div>
-      <p className="text-[14px] text-[#1D271F] ">{date}</p>
+      <p className="text-[14px] ">{date}</p>
     </div>
   );
 };
