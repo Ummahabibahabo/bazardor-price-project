@@ -13,8 +13,7 @@ const BannerPage = () => {
         </div>
 
         <h1 className="text-3xl md:text-4xl lg:text-[42px] leading-snug font-bold text-[#1D271F]">
-          আজকের বাজারের দাম
-          <span className="block text-[#05893E]">এক নজরে</span>
+          আজকের বাজারের দাম এক নজরে
         </h1>
 
         <p className="text-sm md:text-base leading-7 text-gray-600 max-w-xl">

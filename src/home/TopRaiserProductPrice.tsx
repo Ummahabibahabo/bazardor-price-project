@@ -7,7 +7,6 @@ interface TopRaiserProductPrice {
 }
 
 const TopRaiserProductPrice = ({ topRiseProduct }: TopRaiserProductPrice) => {
-  console.log(topRiseProduct);
   return (
     <div>
       <div className="flex items-center mt-10">

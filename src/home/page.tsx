@@ -1,6 +1,7 @@
 import { ProductType } from "@/components/type";
 import TopFallersProductPrice from "./TopRaiserProductPrice";
 import TopRaiserProductPrice from "./TopRaiserProductPrice";
+import TopFallersProduct from "./TopFallersProduct";
 
 const HomePage = async () => {
   const res = await fetch(
@@ -11,12 +12,19 @@ const HomePage = async () => {
     .filter((data) => data.change.dir === "up")
     .sort((a, b) => b.change.pct - a.change.pct)
     .slice(0, 6);
-
+  const topFallerProduct = topData
+    .filter((fallerData) => fallerData.change.dir === "down")
+    .sort((a, b) => a.change.pct - b.change.pct)
+    .slice(0, 6);
+  console.log(topFallerProduct);
   return (
     <div>
       <TopRaiserProductPrice
         topRiseProduct={topRiseProduct}
       ></TopRaiserProductPrice>
+      <TopFallersProduct
+        topFallerProduct={topFallerProduct}
+      ></TopFallersProduct>
     </div>
   );
 };
