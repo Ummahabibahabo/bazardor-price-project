@@ -17,7 +17,7 @@ const HomePage = async () => {
     .filter((fallerData) => fallerData.change.dir === "down")
     .sort((a, b) => a.change.pct - b.change.pct)
     .slice(0, 6);
-  console.log(topFallerProduct);
+
   return (
     <div>
       <TopRaiserProductPrice

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import NavLink from "@/components/Navbar/NavLink";
 import Footer from "@/components/Footer";
+import MarqueePage from "@/components/Marquee";
 
 const hindSiliguri = Hind_Siliguri({
   subsets: ["latin", "bengali"],
@@ -24,7 +25,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <Navbar></Navbar>
           </div>
           <NavLink></NavLink>
-          <div className="max-w-7xl mx-auto p-8">{children}</div>
+          <MarqueePage></MarqueePage>
+          <div className="max-w-7xl mx-auto p-8 ">{children}</div>
         </div>
         <Footer></Footer>
       </body>
