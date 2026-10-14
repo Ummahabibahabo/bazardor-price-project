@@ -2,6 +2,7 @@ import { ProductType } from "@/components/type";
 import TopFallersProductPrice from "./TopRaiserProductPrice";
 import TopRaiserProductPrice from "./TopRaiserProductPrice";
 import TopFallersProduct from "./TopFallersProduct";
+import AllProductPage from "./AllProduct";
 
 const HomePage = async () => {
   const res = await fetch(
@@ -25,6 +26,7 @@ const HomePage = async () => {
       <TopFallersProduct
         topFallerProduct={topFallerProduct}
       ></TopFallersProduct>
+      <AllProductPage topData={topData}></AllProductPage>
     </div>
   );
 };

@@ -23,11 +23,10 @@ const BannerPage = () => {
 
         <div className="pt-2">
           <Link
-            href="/products"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#05893E] text-white font-semibold shadow-md shadow-green-100 hover:bg-[#047332] hover:shadow-lg transition-all duration-300"
+            href="#সব-পণ্য"
+            className="inline-block bg-[#05893E] px-4 py-2.5 rounded-xl text-white font-semibold text-[14px] hover:bg-[#047535] transition"
           >
             সব পণ্য দেখুন
-            <span className="text-lg">→</span>
           </Link>
         </div>
       </div>

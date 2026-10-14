@@ -36,7 +36,7 @@ const ProductCardPage = ({ data }: ProductCardPageProps) => {
             </span>{" "}
             টাকা
           </p>
-          <div className="flex items-center bg-gray-100 px-3 py-1 rounded-xl">
+          <div className="flex items-center gap-2 bg-gray-100 px-3 py-1 rounded-xl">
             <span>
               {data.change.dir === "up" ? (
                 <RxTriangleUp className="text-red-600 text-[30px]" />
