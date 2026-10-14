@@ -16,7 +16,7 @@ const ProductCardPage = ({ data }: ProductCardPageProps) => {
     <div>
       <div className="flex gap-5">
         <div className="flex items-center justify-center h-[50px] w-[50px] rounded-xl bg-gray-200 ">
-          <span className="text-[27px]">{data.categoryIcon}</span>
+          <span className="text-[27px]">{data.image}</span>
         </div>
         <div>
           <p className="text-[16px] font-semibold text-[#1D271F]">
@@ -33,7 +33,7 @@ const ProductCardPage = ({ data }: ProductCardPageProps) => {
           <p className="text-[16px]  text-[#1D271F]">
             <span className="text-[16px] font-bold text-[#1D271F]">
               {data.today.toLocaleString("bn-BD")}
-            </span>
+            </span>{" "}
             টাকা
           </p>
           <div className="flex items-center bg-gray-100 px-3 py-1 rounded-xl">
