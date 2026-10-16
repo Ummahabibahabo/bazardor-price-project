@@ -2,6 +2,7 @@ import NavLogo from "@/assests/logo-icon.png";
 import Image from "next/image";
 import Time from "../Time";
 import Link from "next/link";
+import UserInfoPage from "./userInfo";
 const Navbar = () => {
   return (
     <div className="flex justify-between items-center ">
@@ -23,12 +24,7 @@ const Navbar = () => {
           <Time></Time>
         </div>
       </div>
-      <div className="flex gap-5 items-center">
-        <button className="font-semibold text-[#1D271F]">সাইন ইন</button>
-        <button className="px-3 py-2 rounded-xl bg-[#05893E] text-white font-semibold">
-          সাইন আপ
-        </button>
-      </div>
+      <UserInfoPage></UserInfoPage>
     </div>
   );
 };
