@@ -1,9 +1,11 @@
 export interface ProductType {
   category: string;
+  slug: string;
   categoryIcon: string;
   categoryNameBn: string;
   nameBn: string;
-  today: string;
+  yesterday: number;
+  today: number;
   unit: "kg" | "litre" | "dozen" | "piece";
   change: {
     dir: "up" | "down" | "flat";

@@ -4,7 +4,7 @@ import Time from "../Time";
 import Link from "next/link";
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center ">
       <div className="flex items-center gap-4">
         <Link href={"/"}>
           <div className="flex justify-center items-center w-[60] h-[60] bg-[#05893E] rounded-xl">

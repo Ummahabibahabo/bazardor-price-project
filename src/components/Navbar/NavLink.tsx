@@ -14,7 +14,7 @@ const NavLink = async () => {
   const data: NavLinkType[] = await res.json();
 
   return (
-    <div className="border-2 border-gray-200 ">
+    <div className="border-2 border-gray-200 bg-white shadow-lg">
       <NavbarLinkClient data={data}></NavbarLinkClient>
     </div>
   );

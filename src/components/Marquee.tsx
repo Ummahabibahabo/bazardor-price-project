@@ -2,6 +2,7 @@ import Marquee from "react-fast-marquee";
 import { ProductType } from "./type";
 import { RxTriangleDown, RxTriangleUp } from "react-icons/rx";
 import { FaEquals } from "react-icons/fa";
+import Link from "next/link";
 
 const MarqueePage = async () => {
   const res = await fetch(
@@ -19,13 +20,17 @@ const MarqueePage = async () => {
       <Marquee>
         <div className="flex">
           {marqueeData.map((data) => (
-            <div key={data.id}>
+            <Link
+              className="hover:underline"
+              href={`/product/${data.id}`}
+              key={data.id}
+            >
               <div className="flex items-center gap-2 border-r-2 border-gray-100 px-4 py-2">
                 {/* Image */}
                 <span className="text-base">{data.image}</span>
 
                 {/* Name */}
-                <span className="text-[16px] font-bold text-[#1D271F]">
+                <span className="text-[16px] font-bold text-[#1D271F] ">
                   {data.nameBn}
                 </span>
 
@@ -58,7 +63,7 @@ const MarqueePage = async () => {
                   </span>
                 </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </Marquee>
