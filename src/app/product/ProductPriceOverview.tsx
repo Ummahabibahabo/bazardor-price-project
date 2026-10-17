@@ -2,12 +2,6 @@ import { ProductType } from "@/components/type";
 
 interface ProductPriceOverviewProps {
   singleProduct: ProductType;
-  markets: {
-    market: string;
-    division: string;
-    min: number;
-    max: number;
-  }[];
 }
 
 const ProductPriceOverview = ({ singleProduct }: ProductPriceOverviewProps) => {

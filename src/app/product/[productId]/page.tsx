@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 const ProductDetailsPage = async ({
   params,
 }: {
-  params: Promise<{ productId: number }>;
+  params: Promise<{ productId: string }>;
 }) => {
   const { productId } = await params;
   const res = await fetch(
