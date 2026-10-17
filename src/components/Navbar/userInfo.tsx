@@ -1,6 +1,7 @@
 "use client";
 
 import { authClient } from "@/app/lib/auth-client";
+import Image from "next/image";
 import Link from "next/link";
 import { BiChevronDown } from "react-icons/bi";
 
@@ -18,15 +19,19 @@ const UserInfoPage = () => {
         <div className="relative group">
           {/* নাম এবং ছবির জায়গা */}
           <div className="flex items-center gap-2 cursor-pointer">
-            <div className="h-[100px] w-[100px] rounded-xl  bg-gray-200 flex items-center justify-center overflow-hidden s">
+            <div className="h-[80px] w-[80px] shrink-0 rounded-xl bg-gray-200 flex items-center justify-center overflow-hidden">
               {user.image ? (
-                <img
+                <Image
                   src={user.image}
                   alt={user.name || "User"}
-                  className=" object-cover"
+                  width={50}
+                  height={50}
+                  className="h-full w-full object-cover"
                 />
               ) : (
-                <span className="font-bold text-black">{user.name}</span>
+                <span className="font-semibold text-black text-center text-sm px-2 break-words">
+                  {user.name}
+                </span>
               )}
             </div>
 
@@ -39,20 +44,19 @@ const UserInfoPage = () => {
           </div>
 
           {/* Hover করলে এই অংশ দেখাবে */}
-          <div className="hidden group-hover:block absolute right-0 top-full pt-2 z-50 w-60">
-            <div className="bg-white border border-gray-100 shadow-lg rounded-xl p-4">
-              <div className="flex items-center gap-3 border-b border-gray-100 pb-3 text-center">
-                <div className="min-w-0 text-center">
-                  <p className="font-semibold text-[#1D271F] truncate">
-                    {user.name}
-                  </p>
-                  <p className="text-sm text-gray-500 truncate">{user.email}</p>
-                </div>
-              </div>
+          <div className="  hidden group-hover:block absolute right-0 top-full pt-2 z-50 w-60">
+            <div className="bg-white border border-gray-100 shadow-lg rounded-xl p-4 text-center">
+              <div className="border-b border-gray-100 pb-3 text-center">
+                <p className="font-semibold text-[#1D271F] truncate">
+                  {user.name}
+                </p>
 
+                <p className="text-sm text-gray-500 truncate">{user.email}</p>
+              </div>
+              <Link href={"/profile"}>👤 আমার প্রোফাইল</Link>
               <button
                 onClick={handleSignOutBtn}
-                className="mt-3 w-full text-left text-red-600 hover:bg-red-50 rounded-lg px-3 py-2 transition"
+                className="mt-3 w-full text-center text-red-600 hover:bg-red-50 rounded-lg px-3 py-2 transition"
               >
                 Sign Out
               </button>

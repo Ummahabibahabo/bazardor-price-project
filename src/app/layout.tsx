@@ -5,6 +5,8 @@ import Navbar from "@/components/Navbar/Navbar";
 import NavLink from "@/components/Navbar/NavLink";
 import Footer from "@/components/Footer";
 import MarqueePage from "@/components/Marquee";
+import { Toast } from "toastify-react-native";
+import { ToastContainer } from "react-toastify";
 
 const hindSiliguri = Hind_Siliguri({
   subsets: ["latin", "bengali"],
@@ -29,6 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <div className="max-w-7xl mx-auto p-8 ">{children}</div>
         </div>
         <Footer></Footer>
+        <ToastContainer></ToastContainer>
       </body>
     </html>
   );

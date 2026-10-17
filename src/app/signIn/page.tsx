@@ -5,6 +5,7 @@ import { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { authClient } from "../lib/auth-client";
 import { redirect } from "next/navigation";
+import { toast } from "react-toastify";
 
 const SignInPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -21,14 +22,24 @@ const SignInPage = () => {
       callbackURL: "/",
     });
     if (data) {
-      console.log(data);
-      //   redirect("/");
+      toast.success("অ্যাকাউন্ট তৈরি সফল হয়েছে!");
+      redirect("/");
     }
     if (error) {
-      console.log(error);
+      toast.error("কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন!");
     }
   };
-
+  const handleGoggleBtn = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+    console.log(data);
+  };
+  const handleGithubSignInBtn = async () => {
+    const data = await authClient.signIn.social({
+      provider: "github",
+    });
+  };
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-[#F5F8F5] px-4 py-10">
       <div className="space-y-2 mb-6 text-center">
@@ -93,7 +104,8 @@ const SignInPage = () => {
         <div className="flex flex-col sm:flex-row gap-3">
           {/* GitHub */}
           <button
-            type="button"
+            onClick={handleGithubSignInBtn}
+            type="submit"
             className="btn flex-1 bg-black text-white border-black hover:bg-gray-800 rounded-xl"
           >
             <svg
@@ -113,7 +125,8 @@ const SignInPage = () => {
 
           {/* Google */}
           <button
-            type="button"
+            onClick={handleGoggleBtn}
+            type="submit"
             className="btn flex-1 bg-white text-black border-[#e5e5e5] hover:bg-gray-50 rounded-xl"
           >
             <svg

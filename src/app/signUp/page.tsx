@@ -4,14 +4,15 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { authClient } from "../lib/auth-client";
-import { string } from "better-auth";
+
 import { redirect } from "next/navigation";
+import { toast } from "react-toastify";
 
 const SignUpPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const handleSingnUpBtn = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSignUpBtn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
@@ -28,12 +29,23 @@ const SignUpPage = () => {
     });
 
     if (data) {
-      console.log(data);
-      //   redirect("/");
+      toast.success("অ্যাকাউন্ট তৈরি সফল হয়েছে!");
+      redirect("/");
     }
     if (error) {
-      console.log(error);
+      toast.error("কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন!");
     }
+  };
+  const handleGoggleSignUpBtn = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+    console.log(data);
+  };
+  const handleGithubSignUpBtn = async () => {
+    const data = await authClient.signIn.social({
+      provider: "github",
+    });
   };
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-[#F5F8F5] px-4 py-10">
@@ -47,7 +59,7 @@ const SignUpPage = () => {
       </div>
 
       <form
-        onSubmit={handleSingnUpBtn}
+        onSubmit={handleSignUpBtn}
         className="fieldset w-full max-w-md bg-white shadow-lg border-x-2 border-x-[#05893E]/30 border-y border-y-gray-200 rounded-2xl p-5 sm:p-7 space-y-1"
       >
         {/* Name */}
@@ -141,7 +153,8 @@ const SignUpPage = () => {
         <div className="flex flex-col sm:flex-row gap-3">
           {/* GitHub */}
           <button
-            type="button"
+            onClick={handleGithubSignUpBtn}
+            type="submit"
             className="btn flex-1 bg-black text-white border-black hover:bg-gray-800 rounded-xl"
           >
             <svg
@@ -161,7 +174,8 @@ const SignUpPage = () => {
 
           {/* Google */}
           <button
-            type="button"
+            onClick={handleGoggleSignUpBtn}
+            type="submit"
             className="btn flex-1 bg-white text-black border-[#e5e5e5] hover:bg-gray-50 rounded-xl"
           >
             <svg
