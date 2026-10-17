@@ -5,15 +5,15 @@ import { ProductType } from "@/components/type";
 import { useState } from "react";
 
 interface CategoryIdPageProps {
-  singleProduct: ProductType[];
+  singleProductData: ProductType[];
 }
 
-const CategorySortPage = ({ singleProduct }: CategoryIdPageProps) => {
+const CategorySortPage = ({ singleProductData }: CategoryIdPageProps) => {
   const [sortBy, setSortBy] = useState<
     "default" | "low-to-high" | "high-to-low"
   >("default");
 
-  const sortedProduct = [...singleProduct];
+  const sortedProduct = [...singleProductData];
 
   if (sortBy === "low-to-high") {
     sortedProduct.sort((a, b) => Number(a.today) - Number(b.today));

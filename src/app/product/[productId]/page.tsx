@@ -1,6 +1,7 @@
 import { ProductType } from "@/components/type";
 import ProductSummary from "../ProductSummary";
 import ProductPriceOverview from "../ProductPriceOverview";
+import { notFound } from "next/navigation";
 
 const ProductDetailsPage = async ({
   params,
@@ -12,7 +13,9 @@ const ProductDetailsPage = async ({
     `https://openapi.programming-hero.com/api/bazardor/products/${productId}`,
   );
   const singleProduct: ProductType = await res.json();
-
+  if (!singleProduct || !singleProduct.id) {
+    notFound();
+  }
   return (
     <div>
       <ProductSummary singleProduct={singleProduct}></ProductSummary>

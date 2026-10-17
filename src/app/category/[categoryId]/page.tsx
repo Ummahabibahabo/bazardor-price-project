@@ -1,5 +1,6 @@
 import { ProductType } from "@/components/type";
 import CategorySortPage from "../CategorySort";
+import { notFound } from "next/navigation";
 
 interface SingleCategoryType {
   icon: string;
@@ -17,11 +18,16 @@ const CategoryIdPage = async ({
     `https://openapi.programming-hero.com/api/bazardor/categories/${categoryId}`,
   );
   const singleCategory: SingleCategoryType = await res.json();
+  if (!singleCategory) {
+    notFound();
+  }
   const productRes = await fetch(
     `https://openapi.programming-hero.com/api/bazardor/products?category=${categoryId}`,
   );
-  const singleProduct: ProductType[] = await productRes.json();
-
+  const singleProductData: ProductType[] = await productRes.json();
+  if (!singleProductData || singleProductData.length === 0) {
+    notFound();
+  }
   return (
     <div>
       <div className="border border-gray-200 rounded-xl bg-white shadow-lg p-7">
@@ -32,13 +38,15 @@ const CategoryIdPage = async ({
               {singleCategory.nameBn}
             </h1>
             <p className="text-[14px] text-[#1D271F]">
-              {singleProduct.length.toLocaleString("bn-BD")} টি পণ্যের আজকের দাম
-              ও পরিবর্তন
+              {singleProductData.length.toLocaleString("bn-BD")} টি পণ্যের আজকের
+              দাম ও পরিবর্তন
             </p>
           </div>
         </div>
       </div>
-      <CategorySortPage singleProduct={singleProduct}></CategorySortPage>
+      <CategorySortPage
+        singleProductData={singleProductData}
+      ></CategorySortPage>
     </div>
   );
 };
