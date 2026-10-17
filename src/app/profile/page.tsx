@@ -2,6 +2,8 @@
 import Image from "next/image";
 import { authClient } from "../lib/auth-client";
 import React from "react";
+import { toast } from "react-toastify";
+import { redirect } from "next/navigation";
 
 const ProfilePage = () => {
   const { data: session } = authClient.useSession();
@@ -13,9 +15,15 @@ const ProfilePage = () => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const newUser = Object.fromEntries(formData.entries()) as { name: string };
-    await authClient.updateUser({
+    const { data, error } = await authClient.updateUser({
       ...newUser,
     });
+    if (data) {
+      toast.success("অ্যাকাউন্ট তৈরি সফল হয়েছে!");
+    }
+    if (error) {
+      toast.error("কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন!");
+    }
   };
   return (
     <div>
